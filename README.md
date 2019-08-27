@@ -12,6 +12,10 @@ There's no real-world advantage in writing this examination in AngularJS (1.x) s
 
 Material Design is fast, optimized for Angular, great set of components, and modern-looking.
 
+### VSCode - OSS
+
+My go-to editor. Lightweight, lots of useful extensions, and open-source.
+
 ## Building
 
 ```bash
