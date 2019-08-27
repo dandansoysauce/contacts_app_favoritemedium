@@ -4,8 +4,8 @@
             <mat-toolbar-row>
                 <span>Contacts</span>
                 <span class="spacer"></span>
-                <button mat-flat-button color="accent" fxHide.lt-sm>Add Contact</button>
-                <button mat-icon-button fxHide.gt-xs>
+                <button mat-flat-button color="accent" fxHide.lt-sm (click)="addContact()">Add Contact</button>
+                <button mat-icon-button fxHide.gt-xs (click)="addContact()">
                     <mat-icon class="example-icon" >person_add</mat-icon>
                 </button>
             </mat-toolbar-row>
