@@ -10,13 +10,16 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { AddContactDialog } from './addcontact/addcontact.dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ContactsComponent
+    ContactsComponent,
+    AddContactDialog
   ],
+  entryComponents: [AddContactDialog],
   imports: [
     BrowserAnimationsModule,
     MaterialModule,
