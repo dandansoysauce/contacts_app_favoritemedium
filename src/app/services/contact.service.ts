@@ -18,15 +18,25 @@ export class ContactService {
     }
 
     //gets all contacts, add new and return the parsed value
-    private updateContacts(newContact) {
+    private updateContacts(contact) {
         let parsedContacts = null;
         const contactsStore = localStorage.getItem('all_contacts');
         if (contactsStore) {
             parsedContacts = JSON.parse(contactsStore);
-            parsedContacts.push(newContact);
+
+            console.log(parsedContacts)
+            console.log(contact)
+            const checkContactIndex = parsedContacts.findIndex(x => x.Id === contact.Id)
+            if (checkContactIndex >= 0) {
+                parsedContacts[checkContactIndex] = contact
+            } else {
+                contact.Id = parsedContacts.length + 1;
+                parsedContacts.push(contact);
+            }
         } else {
             parsedContacts = [];
-            parsedContacts.push(newContact);
+            contact.Id = 1;
+            parsedContacts.push(contact);
         }
 
         return parsedContacts;
