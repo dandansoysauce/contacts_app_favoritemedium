@@ -19,7 +19,8 @@ export class AddEditContactDialog implements OnInit {
     this.newContactFormGroup = this.formBuilder.group({
       name: [undefined, [Validators.required]],
       email: [undefined, [Validators.required, Validators.email]],
-      phone: ['', Validators.pattern('[0-9]{0,10}')]
+      phone: ['', Validators.pattern('[0-9]{0,10}')],
+      id: ['']
     });
 
     if (this.data) {
@@ -27,15 +28,17 @@ export class AddEditContactDialog implements OnInit {
       this.newContactFormGroup.setValue({
         name: this.data.Name,
         email: this.data.Email,
-        phone: this.data.Phone
+        phone: this.data.Phone,
+        id: this.data.Id
       })
     } else {
       this.title = 'Add';
     }
   }
 
-  addContact() {
+  addOrEditContact() {
     const newContact = {
+      Id: this.newContactFormGroup.get('id').value,
       Name: this.newContactFormGroup.get('name').value,
       Email: this.newContactFormGroup.get('email').value,
       Phone: this.newContactFormGroup.get('phone').value,
