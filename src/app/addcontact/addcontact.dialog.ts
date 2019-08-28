@@ -28,5 +28,7 @@ export class AddContactDialog implements OnInit {
       Phone: this.newContactFormGroup.get('phone').value,
       Favorite: false
     } as Contact;
+
+    this.contactService.contacts = newContact;
   }
 }
