@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ContactService } from '../services/contact.service';
+import { Contact } from '../interfaces/contact';
 
 @Component({
     selector: 'app-contacts',
@@ -7,9 +8,13 @@ import { ContactService } from '../services/contact.service';
     styleUrls: ['./contacts.component.scss']
   })
 export class ContactsComponent {
+  contacts: Contact[];
+
   constructor(private contactService: ContactService) {
-    contactService.allContacts.subscribe((nextValue) => {
-      console.log(nextValue);
+    this.contacts = contactService.contacts;
+
+    contactService.allContacts.subscribe((nextValue: any[]) => {
+      this.contacts = nextValue;
     });
   }
 }
