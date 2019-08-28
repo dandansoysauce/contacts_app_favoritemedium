@@ -17,15 +17,14 @@ export class ContactService {
         return JSON.parse(localStorage.getItem('all_contacts'));
     }
 
-    //gets all contacts, add new and return the parsed value
+    //gets all contacts, add new or edit and return the parsed value
     private updateContacts(contact) {
         let parsedContacts = null;
         const contactsStore = localStorage.getItem('all_contacts');
         if (contactsStore) {
             parsedContacts = JSON.parse(contactsStore);
 
-            console.log(parsedContacts)
-            console.log(contact)
+            //check the parameter if it is for edit or add
             const checkContactIndex = parsedContacts.findIndex(x => x.Id === contact.Id)
             if (checkContactIndex >= 0) {
                 parsedContacts[checkContactIndex] = contact
