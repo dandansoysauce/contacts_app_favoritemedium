@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material';
 import { ContactService } from '../services/contact.service';
 import { Contact } from '../interfaces/contact';
 
@@ -11,7 +12,7 @@ import { Contact } from '../interfaces/contact';
 export class AddContactDialog implements OnInit {
   newContactFormGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private contactService: ContactService) {}
+  constructor(private formBuilder: FormBuilder, private contactService: ContactService, @Inject(MAT_DIALOG_DATA) private data: Contact) {}
 
   ngOnInit() {
     this.newContactFormGroup = this.formBuilder.group({
@@ -19,6 +20,14 @@ export class AddContactDialog implements OnInit {
       email: [undefined, [Validators.required, Validators.email]],
       phone: ['', Validators.pattern('[0-9]{0,10}')]
     });
+
+    if (this.data) {
+      this.newContactFormGroup.setValue({
+        name: this.data.Name,
+        email: this.data.Email,
+        phone: this.data.Phone
+      })
+    }
   }
 
   addContact() {

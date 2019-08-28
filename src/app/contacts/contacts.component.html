@@ -3,7 +3,7 @@
         <h2 mat-subheader>Favorites</h2>
         <mat-divider></mat-divider>
         <h2 mat-subheader>Other Contacts</h2>
-        <mat-list-item *ngFor="let contact of contacts">
+        <mat-list-item *ngFor="let contact of contacts" (click)="editContact(contact)">
             <mat-icon mat-list-icon>face</mat-icon>
             <h3 mat-line>{{ contact.Name }}</h3>
             <p mat-line>{{ contact.Email }}</p>
