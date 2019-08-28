@@ -6,14 +6,14 @@ export class ContactService {
     allContacts = new Subject(); //all contacts subscribe
     
     //adds new contact to list, tell the subscriber about the change and store to localStorage
-    set addContactToStore(newContact) {
+    set contacts(newContact) {
         const updatedContacts = this.updateContacts(newContact);
         this.allContacts.next(updatedContacts);
         localStorage.setItem('all_contacts', JSON.stringify(updatedContacts));
     }
 
     //get the parsed value of contacts from localStorage
-    get contactsFromStore() {
+    get contacts() {
         return JSON.parse(localStorage.getItem('all_contacts'));
     }
 
@@ -23,6 +23,9 @@ export class ContactService {
         const contactsStore = localStorage.getItem('all_contacts');
         if (contactsStore) {
             parsedContacts = JSON.parse(contactsStore);
+            parsedContacts.push(newContact);
+        } else {
+            parsedContacts = [];
             parsedContacts.push(newContact);
         }
 
