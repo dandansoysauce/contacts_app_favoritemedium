@@ -1,6 +1,18 @@
 <h2 mat-dialog-title>Add Contact</h2>
 <mat-dialog-content class="mat-typography">
-    
+    <form>
+        <div fxLayout="column">
+            <mat-form-field>
+                <input matInput placeholder="Name" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Email" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Phone">
+            </mat-form-field>
+        </div>
+    </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Close</button>
