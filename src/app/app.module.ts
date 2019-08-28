@@ -10,7 +10,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactsComponent } from './contacts/contacts.component';
-import { AddContactDialog } from './addcontact/addcontact.dialog';
+import { AddEditContactDialog } from './addeditcontact/addeditcontact.dialog';
 
 import { ContactService } from './services/contact.service';
 
@@ -19,9 +19,9 @@ import { ContactService } from './services/contact.service';
     AppComponent,
     HomeComponent,
     ContactsComponent,
-    AddContactDialog
+    AddEditContactDialog
   ],
-  entryComponents: [AddContactDialog],
+  entryComponents: [AddEditContactDialog],
   imports: [
     BrowserAnimationsModule,
     MaterialModule,

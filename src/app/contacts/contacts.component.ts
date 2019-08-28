@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ContactService } from '../services/contact.service';
 import { Contact } from '../interfaces/contact';
-import { AddContactDialog } from '../addcontact/addcontact.dialog';
+import { AddEditContactDialog } from '../addeditcontact/addeditcontact.dialog';
 
 @Component({
     selector: 'app-contacts',
@@ -21,7 +21,7 @@ export class ContactsComponent {
   }
 
   editContact(contact: Contact) {
-    this.dialog.open(AddContactDialog, {
+    this.dialog.open(AddEditContactDialog, {
       width: '600px',
       data: contact
     });

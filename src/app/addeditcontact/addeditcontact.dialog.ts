@@ -5,11 +5,11 @@ import { ContactService } from '../services/contact.service';
 import { Contact } from '../interfaces/contact';
 
 @Component({
-    selector: 'app-addcontact-dialog',
-    templateUrl: './addcontact.dialog.html',
-    styleUrls: ['./addcontact.dialog.scss']
+    selector: 'app-addeditcontact-dialog',
+    templateUrl: './addeditcontact.dialog.html',
+    styleUrls: ['./addeditcontact.dialog.scss']
   })
-export class AddContactDialog implements OnInit {
+export class AddEditContactDialog implements OnInit {
   newContactFormGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private contactService: ContactService, @Inject(MAT_DIALOG_DATA) private data: Contact) {}

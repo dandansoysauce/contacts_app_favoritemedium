@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
-import { AddContactDialog } from '../addcontact/addcontact.dialog';
+import { AddEditContactDialog } from '../addeditcontact/addeditcontact.dialog';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +14,7 @@ export class HomeComponent {
   }
 
   addContact() {
-    this.openDialog(AddContactDialog);
-  }
-
-  private openDialog(dialogComponent: any) {
-    this.dialog.open(dialogComponent, {
+    this.dialog.open(AddEditContactDialog, {
       width: '600px'
     });
   }
