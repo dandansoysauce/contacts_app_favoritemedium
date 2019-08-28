@@ -10,6 +10,7 @@ import { Contact } from '../interfaces/contact';
     styleUrls: ['./addeditcontact.dialog.scss']
   })
 export class AddEditContactDialog implements OnInit {
+  title: string;
   newContactFormGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private contactService: ContactService, @Inject(MAT_DIALOG_DATA) private data: Contact) {}
@@ -22,11 +23,14 @@ export class AddEditContactDialog implements OnInit {
     });
 
     if (this.data) {
+      this.title = 'Edit';
       this.newContactFormGroup.setValue({
         name: this.data.Name,
         email: this.data.Email,
         phone: this.data.Phone
       })
+    } else {
+      this.title = 'Add';
     }
   }
 
