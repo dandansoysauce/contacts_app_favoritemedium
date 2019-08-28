@@ -10,7 +10,7 @@ import { Contact } from '../interfaces/contact';
 export class ContactsComponent {
   contacts: Contact[];
 
-  constructor(private contactService: ContactService) {
+  constructor(contactService: ContactService) {
     this.contacts = contactService.contacts;
 
     contactService.allContacts.subscribe((nextValue: any[]) => {
