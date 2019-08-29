@@ -34,7 +34,9 @@ export class ContactsComponent {
   }
 
   private filterContacts(contacts: Contact[]) {
-    this.faveContacts = contacts.filter(x => x.Favorite)
-    this.otherContacts = contacts.filter(x => !x.Favorite)
+    if (contacts) {
+      this.faveContacts = contacts.filter(x => x.Favorite)
+      this.otherContacts = contacts.filter(x => !x.Favorite)
+    }
   }
 }
