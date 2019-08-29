@@ -19,7 +19,7 @@ export class AddEditContactDialog implements OnInit {
     this.newContactFormGroup = this.formBuilder.group({
       name: [undefined, [Validators.required]],
       email: [undefined, [Validators.required, Validators.email]],
-      phone: ['', Validators.pattern('[0-9]{0,10}')],
+      phone: ['', Validators.pattern('[0-9]{0,20}')],
       id: ['']
     });
 
